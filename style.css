@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #111;
+    background: #f2f7fb;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Атрибут hidden должен скрывать элементы, несмотря на другие стили */
+[hidden] {
+    display: none !important;
+}
+
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font: inherit;
+    color: #fff;
+    background: #0d6efd;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0b5ed7;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Затемнённый фон и окно попапа поверх страницы */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.popup {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 14px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.popup h2 {
+    margin: 0 0 10px;
+    padding-right: 36px;
+    font-size: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Подписи скрыты визуально, но доступны экранным читалкам; на экране их заменяют placeholder */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.field {
+    margin: 0 0 8px;
+}
+
+/* Шрифт 16px, чтобы iPhone не увеличивал страницу при фокусе */
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 9px 10px;
+    font: inherit;
+    border: 1px solid #5d88b4;
+    border-radius: 6px;
+}
+
+.field textarea {
+    resize: none;
+}
+
+.consent {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin: 4px 0 10px;
+    font-size: 14px;
+}
+
+.consent input {
+    flex: none;
+    margin-top: 3px;
+}
+
+.status {
+    margin: 10px 0 0;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.status-info {
+    color: #084298;
+    background: #cfe2ff;
+}
+
+.status-success {
+    color: #0f5132;
+    background: #d1e7dd;
+}
+
+.status-error {
+    color: #842029;
+    background: #f8d7da;
+}
+
+/* Планшет и компьютер: поля в две колонки, больше воздуха */
+@media (min-width: 600px) {
+    .popup {
+        padding: 24px;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 10px;
+    }
+}

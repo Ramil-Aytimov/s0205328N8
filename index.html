@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Обратная связь</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<main class="page">
+    <h1>Контакты</h1>
+    <p>Есть вопрос или предложение? Напишите нам, и мы ответим как можно скорее.</p>
+    <button type="button" id="open-form" class="btn">Обратная связь</button>
+</main>
+
+<!-- Попап поверх страницы; по умолчанию скрыт -->
+<div id="popup" class="popup-overlay" hidden>
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <button type="button" id="close-form" class="close-btn" aria-label="Закрыть форму">&times;</button>
+        <h2 id="popup-title">Форма обратной связи</h2>
+
+        <form id="feedback-form" action="#" method="post">
+            <div class="row">
+                <p class="field">
+                    <label for="fullname" class="visually-hidden">ФИО</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="ФИО *"
+                           autocomplete="name" required>
+                </p>
+                <p class="field">
+                    <label for="organization" class="visually-hidden">Организация</label>
+                    <input type="text" id="organization" name="organization" placeholder="Организация"
+                           autocomplete="organization">
+                </p>
+            </div>
+
+            <div class="row">
+                <p class="field">
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email *"
+                           autocomplete="email" required>
+                </p>
+                <p class="field">
+                    <label for="phone" class="visually-hidden">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Телефон"
+                           autocomplete="tel" pattern="[0-9+ \-]{6,20}"
+                           title="Цифры, пробелы, знаки + и -, от 6 до 20 символов">
+                </p>
+            </div>
+
+            <p class="field">
+                <label for="message" class="visually-hidden">Сообщение</label>
+                <textarea id="message" name="message" rows="3" placeholder="Сообщение *" required></textarea>
+            </p>
+
+            <p class="consent">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Я согласен(на) с политикой обработки персональных данных</label>
+            </p>
+
+            <button type="submit" id="submit-button" class="btn btn-block">Отправить</button>
+        </form>
+
+        <!-- Сообщение об успехе или ошибке -->
+        <p id="status" class="status" role="status" hidden></p>
+    </div>
+</div>
+
+</body>
+
+</html>
